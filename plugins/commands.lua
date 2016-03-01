@@ -28,12 +28,12 @@ do
                         text = text..space
                     end
                 end
-            else
+            else 
                 text = text..lang_text(msg.to.id, 'moderation:5')..'\n'
                 text = text..lang_text(msg.to.id, 'version:1')..'\n'
                 text = text..lang_text(msg.to.id, 'rules:1')..'\n'
             end
-        elseif matches[1] == 'help' and matches[2] then
+        elseif matches[1] == 'commands' and matches[2] then
             if permissions(msg.from.id, msg.to.id, "mod_commands") then
                 local langHash = 'langset:'..msg.to.id
                 local lang = redis:get(langHash)
@@ -58,8 +58,8 @@ do
 
     return {
         patterns = {
-            "^#(help)$",
-            "^#(help) (.+)"
+            "^#(commands)$",
+            "^#(commands) (.+)"
         }, 
         run = run 
     }
