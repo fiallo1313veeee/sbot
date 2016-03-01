@@ -488,7 +488,7 @@ local function run(msg, matches)
         else
             return '🚫 '..lang_text(msg.to.id, 'require_mod')
         end
-    elseif matches[1] == 'gban' then
+    elseif matches[1] == 'banall' then
         if permissions(msg.from.id, msg.to.id, "gban") then
             chat_id = msg.to.id
             chat_type = msg.to.type
@@ -521,7 +521,7 @@ local function run(msg, matches)
         else
             return '🚫 '..lang_text(msg.to.id, 'require_admin')
         end
-    elseif matches[1] == 'ungban' then
+    elseif matches[1] == 'unbanall' then
         if permissions(msg.from.id, msg.to.id, "ungban") then
         	chat_id = msg.to.id
         	chat_type = msg.to.type
@@ -662,10 +662,10 @@ return {
         "^#(kickme)$",
         "^#(add) (.*)$",
         "^#(add)$",
-        "^#(gban) (.*)$",
-        "^#(gban)$",
-        "^#(ungban) (.*)$",
-        "^#(ungban)$",
+        "^#(banall) (.*)$",
+        "^#(banall)$",
+        "^#(unbanall) (.*)$",
+        "^#(unbanall)$",
         '^#(mute) (.*)$',
         '^#(mute)$',
         '^#(unmute) (.*)$',
